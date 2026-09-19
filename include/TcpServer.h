@@ -1,5 +1,4 @@
-#ifndef TCPSERVER_H
-#define TCPSERVER_H
+#pragma once
 
 class TcpServer {
 public:
@@ -8,14 +7,13 @@ public:
     void start();
 
 private:
-    void initServer();
-    int acceptClient();
-    void handleClient(int connfd_);
+    void socket_();//创建socket
+    void bind_();//命名socket，绑定地址
+    void listen_();//监听socket
+    int accept_();//接受连接
+    void handle_(int connfd);
 
 private:
     int port_;
-    int listenfd_;
-    bool isRunning_;
+    int socketfd_;
 };
-
-#endif
